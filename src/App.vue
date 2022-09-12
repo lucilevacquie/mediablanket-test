@@ -21,15 +21,17 @@ export default {
   <div class="">
     <div class="grid grid-cols-1 lg:grid-cols-3">
       <!-- Contact information -->
-      <div class="h-screen bg-primary py-10 px-6 sm:px-10 xl:p-12">
+      <div
+        class="flex flex-col items-center h-screen bg-primary py-10 px-6 sm:px-10 xl:p-12 lg:items-start"
+      >
         <img src="./assets/logo.png" class="w-2/3 mx-auto" />
-        <p class="mt-6 max-w-3xl text-base text-indigo-50">
+        <p class="mt-6 max-w-3xl text-base text-white text-center lg:text-left">
           We'd love to hear from you! Whether you’re curious about features, a
           free trial, or even press—we’re ready to answer any and all questions.
         </p>
-        <dl class="mt-8 space-y-6">
+        <dl class="space-y-6">
           <dt><span class="sr-only">Phone number</span></dt>
-          <dd class="flex text-base text-indigo-50">
+          <dd class="flex justify-center text-base text-white lg:justify-start">
             <PhoneIcon
               class="h-6 w-6 flex-shrink-0 text-secondary"
               aria-hidden="true"
@@ -37,7 +39,7 @@ export default {
             <span class="ml-3">+44 1632 960557</span>
           </dd>
           <dt><span class="sr-only">Email</span></dt>
-          <dd class="flex text-base text-indigo-50">
+          <dd class="flex justify-center text-base text-white lg:justify-start">
             <EnvelopeIcon
               class="h-6 w-6 flex-shrink-0 text-secondary"
               aria-hidden="true"
@@ -47,7 +49,7 @@ export default {
         </dl>
         <ul role="list" class="mt-8 flex space-x-12">
           <li>
-            <a class="text-secondary hover:text-indigo-100" href="#">
+            <a class="text-secondary hover:text-white" href="#">
               <span class="sr-only">Facebook</span>
               <svg
                 width="24"
@@ -66,7 +68,7 @@ export default {
             </a>
           </li>
           <li>
-            <a class="text-secondary hover:text-indigo-100" href="#">
+            <a class="text-secondary hover:text-white" href="#">
               <span class="sr-only">GitHub</span>
               <svg
                 width="24"
@@ -85,7 +87,7 @@ export default {
             </a>
           </li>
           <li>
-            <a class="text-secondary hover:text-indigo-100" href="#">
+            <a class="text-secondary hover:text-white" href="#">
               <span class="sr-only">Twitter</span>
               <svg
                 width="24"
@@ -104,10 +106,10 @@ export default {
             </a>
           </li>
         </ul>
-        <div class="mt-8">
+        <div class="mt-8 w-full">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2374.415198506002!2d-2.2488156340972463!3d53.478910830007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb1c241e07889%3A0xf3f536a36a55a5da!2sLloyd%20St%2C%20Manchester%20M2%205WA!5e0!3m2!1sen!2suk!4v1662987471247!5m2!1sen!2suk"
-            class="w-full h-72"
+            class="w-full h-96 md:h-80 lg:h-72"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -116,7 +118,7 @@ export default {
       </div>
 
       <!-- Contact form -->
-      <div class="flex flex-col justify-center items- lg:col-span-2">
+      <div class="my-12 flex flex-col justify-center lg:my-0 lg:col-span-2">
         <div class="px-6 sm:px-10 xl:p-12">
           <h3 class="text-2xl font-bold text-secondary">Send us a message</h3>
           <form
