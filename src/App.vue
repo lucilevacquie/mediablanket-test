@@ -3,6 +3,15 @@ export default {
   data() {
     return {
       selected: "",
+      form: {
+        name: "",
+        email: "",
+        phone: "",
+        address: "",
+        postcode: "",
+        country: "",
+        message: "",
+      },
     };
   },
 };
@@ -116,11 +125,15 @@ export default {
             class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
           >
             <div>
-              <label for="name" class="block text-sm font-medium text-secondary"
-                >Name</label
+              <label
+                for="name"
+                class="block text-sm font-medium text-secondary"
               >
+                Name
+              </label>
               <div class="mt-1">
                 <input
+                  v-model="form.name"
                   type="text"
                   name="name"
                   id="name"
@@ -138,6 +151,7 @@ export default {
               </label>
               <div class="mt-1">
                 <input
+                  v-model="form.email"
                   id="email"
                   name="email"
                   type="email"
@@ -172,6 +186,7 @@ export default {
               </label>
               <div class="mt-1">
                 <input
+                  v-model="form.phone"
                   type="text"
                   name="phone"
                   id="phone"
@@ -190,6 +205,7 @@ export default {
               </label>
               <div class="mt-1">
                 <input
+                  v-model="form.address"
                   type="text"
                   name="address"
                   id="address"
@@ -208,6 +224,7 @@ export default {
               </label>
               <div class="mt-1">
                 <input
+                  v-model="form.postcode"
                   type="text"
                   name="postcode"
                   id="postcode"
@@ -226,6 +243,7 @@ export default {
               </label>
               <div class="mt-1">
                 <input
+                  v-model="form.country"
                   type="text"
                   name="country"
                   id="country"
@@ -249,6 +267,7 @@ export default {
               </div>
               <div class="mt-1">
                 <textarea
+                  v-model="form.message"
                   id="message"
                   name="message"
                   rows="4"
