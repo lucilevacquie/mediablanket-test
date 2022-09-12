@@ -1,3 +1,13 @@
+<script>
+export default {
+  data() {
+    return {
+      selected: "",
+    };
+  },
+};
+</script>
+
 <template>
   <div class="">
     <div class="grid grid-cols-1 lg:grid-cols-3">
@@ -5,8 +15,8 @@
       <div class="h-screen bg-primary py-10 px-6 sm:px-10 xl:p-12">
         <img src="./assets/logo.png" class="w-2/3 mx-auto" />
         <p class="mt-6 max-w-3xl text-base text-indigo-50">
-          Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat
-          massa dictumst amet. Sapien tortor lacus arcu.
+          We'd love to hear from you! Whether you’re curious about features, a
+          free trial, or even press—we’re ready to answer any and all questions.
         </p>
         <dl class="mt-8 space-y-6">
           <dt><span class="sr-only">Phone number</span></dt>
@@ -99,92 +109,129 @@
       <!-- Contact form -->
       <div class="flex flex-col justify-center items- lg:col-span-2">
         <div class="px-6 sm:px-10 xl:p-12">
-          <h3 class="text-lg font-medium text-gray-900">Send us a message</h3>
+          <h3 class="text-2xl font-bold text-secondary">Send us a message</h3>
           <form
             action="#"
             method="POST"
             class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
           >
             <div>
-              <label
-                for="first-name"
-                class="block text-sm font-medium text-gray-900"
-                >First name</label
+              <label for="name" class="block text-sm font-medium text-secondary"
+                >Name</label
               >
               <div class="mt-1">
                 <input
                   type="text"
-                  name="first-name"
-                  id="first-name"
-                  autocomplete="given-name"
-                  class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  name="name"
+                  id="name"
+                  autocomplete="name"
+                  class="block w-full rounded-md border border-gray-100 py-3 px-4 text-secondary shadow-sm focus:border-primaryDark focus:ring-primaryDark"
                 />
               </div>
             </div>
             <div>
               <label
-                for="last-name"
-                class="block text-sm font-medium text-gray-900"
-                >Last name</label
+                for="email"
+                class="block text-sm font-medium text-secondary"
               >
-              <div class="mt-1">
-                <input
-                  type="text"
-                  name="last-name"
-                  id="last-name"
-                  autocomplete="family-name"
-                  class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                />
-              </div>
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-900"
-                >Email</label
-              >
+                Email
+              </label>
               <div class="mt-1">
                 <input
                   id="email"
                   name="email"
                   type="email"
                   autocomplete="email"
-                  class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  class="block w-full rounded-md border border-gray-100 py-3 px-4 text-secondary shadow-sm focus:border-primaryDark focus:ring-primaryDark"
                 />
               </div>
             </div>
             <div>
-              <div class="flex justify-between">
-                <label
-                  for="phone"
-                  class="block text-sm font-medium text-gray-900"
-                  >Phone</label
-                >
-                <span id="phone-optional" class="text-sm text-gray-500"
-                  >Optional</span
-                >
-              </div>
+              <label
+                for="way-to-contact"
+                class="block text-sm font-medium text-secondary"
+              >
+                Preferred way to contact
+              </label>
+              <select
+                v-model="selected"
+                class="mt-1 h-12 block w-full rounded-md border border-gray-100 py-3 px-4 text-secondary shadow-sm focus:border-primaryDark focus:ring-primaryDark"
+              >
+                <option>Email</option>
+                <option>Phone</option>
+                <option>Post</option>
+              </select>
+            </div>
+
+            <div v-show="selected === 'Phone'">
+              <label
+                for="phone"
+                class="block text-sm font-medium text-secondary"
+              >
+                Phone
+              </label>
               <div class="mt-1">
                 <input
                   type="text"
                   name="phone"
                   id="phone"
-                  autocomplete="tel"
-                  class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                  aria-describedby="phone-optional"
+                  autocomplete="phone"
+                  class="block w-full rounded-md border border-gray-100 py-3 px-4 text-secondary shadow-sm focus:border-primaryDark focus:ring-primaryDark"
+                  aria-describedby="phone"
                 />
               </div>
             </div>
-            <div class="sm:col-span-2">
+            <div v-show="selected === 'Post'">
               <label
-                for="subject"
-                class="block text-sm font-medium text-gray-900"
-                >Subject</label
+                for="address"
+                class="block text-sm font-medium text-secondary"
               >
+                Address
+              </label>
               <div class="mt-1">
                 <input
                   type="text"
-                  name="subject"
-                  id="subject"
-                  class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  name="address"
+                  id="address"
+                  autocomplete="address"
+                  class="block w-full rounded-md border border-gray-100 py-3 px-4 text-secondary shadow-sm focus:border-primaryDark focus:ring-primaryDark"
+                  aria-describedby="address"
+                />
+              </div>
+            </div>
+            <div v-show="selected === 'Post'">
+              <label
+                for="postcode"
+                class="block text-sm font-medium text-secondary"
+              >
+                Postcode
+              </label>
+              <div class="mt-1">
+                <input
+                  type="text"
+                  name="postcode"
+                  id="postcode"
+                  autocomplete="postcode"
+                  class="block w-full rounded-md border border-gray-100 py-3 px-4 text-secondary shadow-sm focus:border-primaryDark focus:ring-primaryDark"
+                  aria-describedby="postcode"
+                />
+              </div>
+            </div>
+            <div v-show="selected === 'Post'">
+              <label
+                for="country"
+                class="block text-sm font-medium text-secondary"
+              >
+                Country
+              </label>
+              <div class="mt-1">
+                <input
+                  type="text"
+                  name="country"
+                  id="country"
+                  autocomplete="country"
+                  class="block w-full rounded-md border border-gray-100 py-3 px-4 text-secondary shadow-sm focus:border-primaryDark focus:ring-primaryDark"
+                  aria-describedby="country"
                 />
               </div>
             </div>
@@ -192,19 +239,20 @@
               <div class="flex justify-between">
                 <label
                   for="message"
-                  class="block text-sm font-medium text-gray-900"
-                  >Message</label
+                  class="block text-sm font-medium text-secondary"
                 >
-                <span id="message-max" class="text-sm text-gray-500"
-                  >Max. 500 characters</span
-                >
+                  Message
+                </label>
+                <span id="message-max" class="text-sm text-gray-500">
+                  Max. 500 characters
+                </span>
               </div>
               <div class="mt-1">
                 <textarea
                   id="message"
                   name="message"
                   rows="4"
-                  class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  class="block w-full rounded-md border border-gray-100 py-3 px-4 text-gray-900 shadow-sm focus:border-primaryDark focus:ring-primaryDark"
                   aria-describedby="message-max"
                 />
               </div>
@@ -212,7 +260,7 @@
             <div class="sm:col-span-2 sm:flex sm:justify-end">
               <button
                 type="submit"
-                class="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
+                class="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-primaryDark focus:ring-offset-2 sm:w-auto"
               >
                 Submit
               </button>
